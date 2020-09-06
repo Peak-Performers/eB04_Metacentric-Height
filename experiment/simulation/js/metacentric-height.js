@@ -130,25 +130,65 @@ window.view ={
     // clearOutputValues: clear all output values that displayed during the execution.
     /*clearOutputValues: function () {
         this.setInnerHtml('vari', '');
-        this.setInnerHtml('valuei', '');
-        this.setInnerHtml('valuesum', ''); //todo change id if require
-        this.setInnerHtml('varsum', '');
-        this.setInnerHtml('integrText', '');
-        this.setInnerHtml('integrValue', '');
     },*/
     /* validationInput: check validation of input that is given by user and if input value is valid
     then make text field and ok button disable and make start button enable. */
     validationInput: function () {
-        // var valueC1 = this.getValue('valueC'); //todo for tilt angle
         var valueD1 = this.getValue('valueD');
-        // else if ((Math.tan(valueC2))=== Infinity){ //todo check condition if required for tilt angle
-        //     alert('Impossible result');
-        //     return false;
-        // }
+        if (valueD1 === 0){
+            model.inputValueC = 0;
+        }
+        else if ( valueD1 === (-10)) {
+            model.inputValueC = 0.02618;
+        }
+        else if (valueD1 === (-20)) {
+            model.inputValueC = 0.05240;
+        }
+        else if (valueD1 === (-30)) {
+            model.inputValueC = 0.07870;
+        }
+        else if (valueD1 === (-40)) {
+            model.inputValueC = 0.10514;
+        }
+        else if (valueD1 === (-50)) {
+            model.inputValueC = 0.13165;
+        }
+        else if (valueD1 === (-60)) {
+            model.inputValueC = 0.15838;
+        }
+        else if (valueD1 === (-70)) {
+            model.inputValueC = 0.18533;
+        }
+        else if (valueD1 === (-80)) {
+            model.inputValueC = 0.20345;
+        }
+        else if (valueD1 === 10) {
+            model.inputValueC = 0.02618;
+        }
+        else if (valueD1 === 20) {
+            model.inputValueC = 0.04366;
+        }
+        else if (valueD1 === 30) {
+            model.inputValueC = 0.07870;
+        }
+        else if (valueD1 === 40) {
+            model.inputValueC = 0.09628;
+        }
+        else if (valueD1 === 50 ) {
+            model.inputValueC = 0.13165;
+        }
+        else if (valueD1 === 60 ) {
+            model.inputValueC = 0.14945;
+        }
+        else if	( valueD1 === 70 ) {
+            model.inputValueC = 0.17632;
+        }
+        else if (valueD1 === 80) {
+            model.inputValueC = 0.20345;
+        }
         model.inputValueA = 1.5;
         model.inputValueB = 0.3056;
-            // model.inputValueC = valueC2 ;
-        model.inputValueD = valueD1; // todo work for sign change
+        model.inputValueD = Math.abs(valueD1);
         this.changePropertyOfElements();
         // this.clearOutputValues(); //todo if required
         this.restoreCanvas();
