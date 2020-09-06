@@ -83,7 +83,7 @@
 <script type="text/javascript">
     ctx = document.getElementById("canvas").getContext("2d");
 ctx.beginPath();
-canvas_arrow(ctx, 200, 50, 200+(200*(Math.tan(this.inputValueC))), 200);
+canvas_arrow(ctx, 200, 50, 200+(200*(this.inputValueC)), 200);
 canvas_arrow(ctx, 200, 50, 200, 200);
 //canvas_arrow(ctx, 100, 30, 100, 150);
 //canvas_arrow(ctx, 400, 200, 100, 50);
@@ -124,7 +124,7 @@ xmass.fillRect(170,40,60,40);
 
 var ctxt = canvas.getContext("2d");
 ctxt.font = "20px Arial";
-ctxt.fillText("W",180,40);
+ctxt.fillText("w",180,40);
 ctxt.fillText("M",180,100);
 ctxt.fillText("G",180,145);
 ctxt.fillText("B",180,185);
@@ -150,11 +150,11 @@ cc.stroke();
 
 var ctx = canvas.getContext("2d");
 ctx.font = "15px Arial";
-ctx.fillText("Angle-"+ (Math.tan(this.inputValueC)) , 10, 40);
+ctx.fillText("Angle - "+ (this.inputValueC) , 10, 40);
 
 var ctx = canvas.getContext("2d");
 ctx.font = "15px Arial";
-ctx.fillText("Metacentric Height in mm"+ this.metacentricHeight , 10, 20);
+ctx.fillText("Metacentric Height in mm - "+ this.metacentricHeight , 10, 20);
 
 //var ctx = canvas.getContext("2d");
 //ctx.font = "15px Arial";
