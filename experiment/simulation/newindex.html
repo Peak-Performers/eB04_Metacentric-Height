@@ -21,7 +21,7 @@
 <script type="text/javascript">
 	ctx = document.getElementById("canvas").getContext("2d");
 ctx.beginPath();
-canvas_arrow(ctx, 200, 50, 200+(200*(Math.tan(this.inputValueC))), 200);
+canvas_arrow(ctx, 200, 50, 200+(200*(this.inputValueC)), 200);
 canvas_arrow(ctx, 200, 50, 200, 200);
 //canvas_arrow(ctx, 100, 30, 100, 150);
 //canvas_arrow(ctx, 400, 200, 100, 50);
@@ -31,7 +31,7 @@ ctx.stroke();
 
 
 function canvas_arrow(context, fromx, fromy, tox, toy) {
-  var headlen = 20; 
+  var headlen = 20;
   var dx = tox - fromx;
   var dy = toy - fromy;
   var angle = Math.atan2(dy, dx);

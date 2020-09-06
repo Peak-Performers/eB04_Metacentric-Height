@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-<html><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager-->
-    <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+<html>
+<head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!-- Bootstrap -->
-    <!-- <link href="q	bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen" rel="stylesheet"/> -->
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <!-- &lt;link rel="stylesheet" type="text/css" href="../../bstyle.css"&gt; -->
-    <!-- &lt;link rel="stylesheet" type="text/css" href="../../fonts.css"&gt; -->
     <link href="css/metacentric-height.css" rel="stylesheet" type="text/css"/>
-    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css"/>
     <script src="js/metacentric-height.js"></script>
     <title>Mechanical Lab</title>
 </head>
 
-<body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)-->
-<div id="header"> Simulator <br/> Metacentric Height(floating object)</div>
+<body>
+
+<div id="header"> Simulator <br/> Metacentric Height of a floating object</div>
 <a href="exp-index.html"><div class="vlabsIcon"></div></a>
 <div class="inputDivision">
     <div class="FirstInputBlock">
@@ -101,7 +93,7 @@ ctx.stroke();
 
 
 function canvas_arrow(context, fromx, fromy, tox, toy) {
-  var headlen = 20; 
+  var headlen = 20;
   var dx = tox - fromx;
   var dy = toy - fromy;
   var angle = Math.atan2(dy, dx);
@@ -158,35 +150,20 @@ cc.stroke();
 
 var ctx = canvas.getContext("2d");
 ctx.font = "15px Arial";
-ctx.fillText("angle-"+ (Math.tan(this.inputValueC)) , 10, 40);
+ctx.fillText("Angle-"+ (Math.tan(this.inputValueC)) , 10, 40);
 
 var ctx = canvas.getContext("2d");
 ctx.font = "15px Arial";
-ctx.fillText("Metacentric height-"+ metacentricHeight , 10, 20);
+ctx.fillText("Metacentric Height in mm"+ this.metacentricHeight , 10, 20);
 
 //var ctx = canvas.getContext("2d");
 //ctx.font = "15px Arial";
 //ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
 
-
-
-
             </script>
         </div><!-- end of FirstInputBlock -->
-        <div class="gapBitweenMeamoryGap"></div>
-        <!-- <div class="textAlignLeft" id="resultShowDiv">
-            <div class="marginLeft">
-                <span>LOCAL VARIABLES :</span>  <span id="vari"></span><span id="valuei"></span>  <span id="varsum"></span><span id="valuesum"></span>
-            </div>
-            <div class="marginLeft">
-                <span>OUTPUT :</span>  <span id="integrText"></span><span id="integrValue"></span>
-            </div>
-        </div> -->
     </div><!-- end of resultDisplay -->
 </div><!-- end of outputDivision -->
-
-
-
 
 
 </body></html>

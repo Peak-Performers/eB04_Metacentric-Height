@@ -332,26 +332,12 @@ body{
     margin-left: 2%;
 }
 
-.gapBitweenMeamoryGap{
-    float: left;
-    width: 100%;
-    height:5%;
-}
-
-.textAlignLeft{
-    text-align: left;
-}
-
 .redClass {
     display: block;
     color: red;
     font-weight: bold;
 }
 
-.marginLeft{
-    margin-left: 20px;
-    margin-top: 6px;
-}
 
 @media only screen and (min-width: 360px) and (max-width: 640px){
     body

@@ -1,13 +1,13 @@
 window.model = {
     inputValueA: '', // user input W.
     inputValueB: '', // user input w.
-    inputValueC: '', // user input angle.
+    inputValueC: '', // user input tan(angle).
     inputValueD:'', // user input displacement
     metacentricHeight: 0, // metacentricHeight that compute by computeSum method.
     width: 1, //width of executing one step.
     //  computeSum: compute metacentricHeight of floating object
     computeSum: function () {
-        this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(Math.tan(this.inputValueC)))) * this.width;
+        this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
     }
 }
 
