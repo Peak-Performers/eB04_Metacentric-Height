@@ -6,6 +6,5 @@ function colorChange(myColor1,myColor2){
     document.getElementsByClassName('navbar-nav')[0].getElementsByTagName('a')[2].style.background=myColor1;
     for (var i = 0; i < 12; i++) {
         document.getElementsByClassName('experiment-card')[i].style.background=myColor2;
-        /*document.getElementsByClassName('nav nav-pills nav-stacked')[i].style.background=myColor2;*/
     };
 }

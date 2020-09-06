@@ -81,16 +81,9 @@
             <script>
                 var c = document.getElementById("myCanvas");
                 var grad = c.getContext("2d");
-                // // var c = document.getElementById("myCanvas");
-                // var ctx = c.getContext("2d");
                 var grd = grad.createLinearGradient(400,150,400,300);
                 grd.addColorStop(0,"white");
                 grd.addColorStop(1,"blue");
-                //  ctx.font = "10px Arial";
-                //  ctx.fillText("Hello World",20,50);
-                // ctx.fillStyle = grd;
-                // ctx.fillRect(0,0,500,100);
-
 
                 grad.fillStyle = grd;
                 grad.fillRect(0,0,400,300);
@@ -130,6 +123,7 @@
             </script>
         </div><!-- end of FirstInputBlock -->
         <div class="gapBitweenMeamoryGap"></div>
+        <!-- todo show ouput calculated value -->
         <!-- <div class="textAlignLeft" id="resultShowDiv">
             <div class="marginLeft">
                 <span>LOCAL VARIABLES :</span>  <span id="vari"></span><span id="valuei"></span>  <span id="varsum"></span><span id="valuesum"></span>
