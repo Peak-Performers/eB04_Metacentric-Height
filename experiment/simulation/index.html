@@ -77,54 +77,98 @@
     <div class="outputDivisionTitle"><div class="outputPic"></div><div class="outputText">Result Visualization</div></div>
     <div class="resultDisplay" id="resultDisplay">
         <div class="graph">
-            <canvas class="canvas" height="300" id="myCanvas" width="420">Your browser does not support the HTML5 canvas tag.</canvas>
-            <script>
-                var c = document.getElementById("myCanvas");
-                var grad = c.getContext("2d");
-                // // var c = document.getElementById("myCanvas");
-                // var ctx = c.getContext("2d");
-                var grd = grad.createLinearGradient(400,150,400,300);
-                grd.addColorStop(0,"white");
-                grd.addColorStop(1,"blue");
-                //  ctx.font = "10px Arial";
-                //  ctx.fillText("Hello World",20,50);
-                // ctx.fillStyle = grd;
-                // ctx.fillRect(0,0,500,100);
+            <p><b>Simulation:</b></p>
+<br>
+
+<div id="image" style="width: 300px;"></div>
+
+<br>
+  <canvas id="canvas" width="500" height="500" style="border:10px;">Your Browser does not support HTML 5 Canvas tag</canvas>
+  <!-- <canvas id="canvas2" width="500" height="500" style="border:10px;"></canvas>
+  <canvas id="canvas3" width="500" height="500" style="border:10px;"></canvas>
+-->
+
+<script type="text/javascript">
+    ctx = document.getElementById("canvas").getContext("2d");
+ctx.beginPath();
+canvas_arrow(ctx, 200, 50, 200+(200*(Math.tan(this.inputValueC))), 200);
+canvas_arrow(ctx, 200, 50, 200, 200);
+//canvas_arrow(ctx, 100, 30, 100, 150);
+//canvas_arrow(ctx, 400, 200, 100, 50);
+//canvas_arrow(ctx, 100, 200, 400, 50);
+
+ctx.stroke();
 
 
-                grad.fillStyle = grd;
-                grad.fillRect(0,0,400,300);
-                var canvas = document.getElementById("myCanvas");
-                var body = canvas.getContext("2d");
-                body.fillStyle = "#e0c200";
-                body.fillRect(100,80,200,150);
-                var xmass = canvas.getContext("2d");
-                xmass.fillStyle = "#FF0000";
-                xmass.fillRect(170,40,60,40);
+function canvas_arrow(context, fromx, fromy, tox, toy) {
+  var headlen = 20; 
+  var dx = tox - fromx;
+  var dy = toy - fromy;
+  var angle = Math.atan2(dy, dx);
+  context.moveTo(fromx, fromy);
+  context.lineTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+  context.moveTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
 
-                var ctxt = canvas.getContext("2d");
-                ctxt.font = "20px Arial";
-                ctxt.fillText("W",180,40);
-                ctxt.fillText("M",180,100);
-                ctxt.fillText("G",180,145);
-                ctxt.fillText("B",180,185);
-                ctxt.fillText("K",180,230);
-                ctxt.fillStyle = "#000000";
 
-                var cline = canvas.getContext("2d");
-                cline.moveTo(200,20);
-                cline.lineTo(200,250);
-                cline.stroke();
+var c = document.getElementById("canvas");
+var grad = c.getContext("2d");
 
-                var cc = canvas.getContext("2d");
-                cc.beginPath();
-                cc.arc(200,50,2,0,2*Math.PI);
-                cc.arc(200,100,2,0,2*Math.PI);
-                cc.arc(200,145,2,0,2*Math.PI);
-                cc.arc(200,185,2,0,2*Math.PI);
-                cc.arc(200,230,2,0,2*Math.PI);
-                cc.fillstyle = "black" ;
-                cc.stroke();
+var grd = grad.createLinearGradient(500,100,500,300);
+grd.addColorStop(0,"white");
+grd.addColorStop(1,"blue");
+
+grad.fillStyle = grd;
+grad.fillRect(0,0,400,300);
+var canvas = document.getElementById("canvas");
+var body = canvas.getContext("2d");
+body.fillStyle = "#e0c200";
+body.fillRect(100,80,200,150);
+var xmass = canvas.getContext("2d");
+xmass.fillStyle = "#FF0000";
+xmass.fillRect(170,40,60,40);
+
+var ctxt = canvas.getContext("2d");
+ctxt.font = "20px Arial";
+ctxt.fillText("W",180,40);
+ctxt.fillText("M",180,100);
+ctxt.fillText("G",180,145);
+ctxt.fillText("B",180,185);
+ctxt.fillText("K",180,230);
+ctxt.fillStyle = "#000000";
+
+var cline = canvas.getContext("2d");
+cline.moveTo(200,20);
+cline.lineTo(200,250);
+cline.stroke();
+
+var cc = canvas.getContext("2d");
+cc.beginPath();
+cc.arc(200,50,2,0,2*Math.PI);
+cc.arc(200,100,2,0,2*Math.PI);
+cc.arc(200,145,2,0,2*Math.PI);
+cc.arc(200,185,2,0,2*Math.PI);
+cc.arc(200,230,2,0,2*Math.PI);
+cc.fillstyle = "black" ;
+cc.stroke();
+
+
+
+var ctx = canvas.getContext("2d");
+ctx.font = "15px Arial";
+ctx.fillText("angle-"+ (Math.tan(this.inputValueC)) , 10, 40);
+
+var ctx = canvas.getContext("2d");
+ctx.font = "15px Arial";
+ctx.fillText("Metacentric height-"+ metacentricHeight , 10, 20);
+
+//var ctx = canvas.getContext("2d");
+//ctx.font = "15px Arial";
+//ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
+
+
 
 
             </script>
