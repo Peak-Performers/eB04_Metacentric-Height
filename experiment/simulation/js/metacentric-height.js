@@ -226,9 +226,11 @@ window.view ={
         this.nextSiblingElement = this.getNextSiblingElement(this.currentSiblingElement);
         if (this.nextSiblingElement.id === 'NumApproCodeContent2') {
             this.executionWithColour();
+            getwater();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent3') {
             this.executionWithColour();
+            getbodyandmass();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent4') {
             this.executionWithColour();
@@ -239,10 +241,12 @@ window.view ={
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent6') {
             this.executionWithColour();
+            getmarkingandarr();
 
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent7') {
             this.executionWithColour();
+            printvalue();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent8') {
             this.executionWithColour();
