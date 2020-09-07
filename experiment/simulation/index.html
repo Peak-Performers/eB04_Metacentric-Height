@@ -81,15 +81,8 @@
 -->
 
 <script type="text/javascript">
-    ctx = document.getElementById("canvas").getContext("2d");
-ctx.beginPath();
-canvas_arrow(ctx, 200, 50, 200+(200*model.inputValueC), 200);
-canvas_arrow(ctx, 200, 50, 200, 200);
-//canvas_arrow(ctx, 100, 30, 100, 150);
-//canvas_arrow(ctx, 400, 200, 100, 50);
-//canvas_arrow(ctx, 100, 200, 400, 50);
+	
 
-ctx.stroke();
 
 
 function canvas_arrow(context, fromx, fromy, tox, toy) {
@@ -125,6 +118,16 @@ xmass.fillStyle = "#FF0000";
 xmass.fillRect(170,40,60,40);
 }
 function getmarkingandarr() {
+	
+ ctx = document.getElementById("canvas").getContext("2d");
+ctx.beginPath();
+canvas_arrow(ctx, 200, 50, 200+(200*model.inputValueC), 200);
+canvas_arrow(ctx, 200, 50, 200, 200);
+//canvas_arrow(ctx, 100, 30, 100, 150);
+//canvas_arrow(ctx, 400, 200, 100, 50);
+//canvas_arrow(ctx, 100, 200, 400, 50);
+
+ctx.stroke();
 
 var ctxt = canvas.getContext("2d");
 ctxt.font = "20px Arial";
