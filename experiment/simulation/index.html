@@ -81,15 +81,8 @@
 -->
 
 <script type="text/javascript">
-    ctx = document.getElementById("canvas").getContext("2d");
-ctx.beginPath();
-canvas_arrow(ctx, 200, 50, 200+(200*model.inputValueC), 200);
-canvas_arrow(ctx, 200, 50, 200, 200);
-//canvas_arrow(ctx, 100, 30, 100, 150);
-//canvas_arrow(ctx, 400, 200, 100, 50);
-//canvas_arrow(ctx, 100, 200, 400, 50);
+	
 
-ctx.stroke();
 
 
 function canvas_arrow(context, fromx, fromy, tox, toy) {
@@ -123,6 +116,18 @@ body.fillRect(100,80,200,150);
 var xmass = canvas.getContext("2d");
 xmass.fillStyle = "#FF0000";
 xmass.fillRect(170,40,60,40);
+}
+function getmarkingandarr() {
+	
+ ctx = document.getElementById("canvas").getContext("2d");
+ctx.beginPath();
+canvas_arrow(ctx, 200, 50, 200+(200*model.inputValueC), 200);
+canvas_arrow(ctx, 200, 50, 200, 200);
+//canvas_arrow(ctx, 100, 30, 100, 150);
+//canvas_arrow(ctx, 400, 200, 100, 50);
+//canvas_arrow(ctx, 100, 200, 400, 50);
+
+ctx.stroke();
 
 var ctxt = canvas.getContext("2d");
 ctxt.font = "20px Arial";
@@ -132,8 +137,7 @@ ctxt.fillText("G",180,145);
 ctxt.fillText("B",180,185);
 ctxt.fillText("K",180,230);
 ctxt.fillStyle = "#000000";
-}
-function getmarkingandarr() {
+
 var cline = canvas.getContext("2d");
 cline.moveTo(200,20);
 cline.lineTo(200,250);
