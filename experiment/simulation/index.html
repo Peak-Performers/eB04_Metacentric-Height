@@ -83,7 +83,7 @@
 <script type="text/javascript">
     ctx = document.getElementById("canvas").getContext("2d");
 ctx.beginPath();
-canvas_arrow(ctx, 200, 50, 200+(200*(this.inputValueC)), 200);
+canvas_arrow(ctx, 200, 50, 200+(200*model.inputValueC), 200);
 canvas_arrow(ctx, 200, 50, 200, 200);
 //canvas_arrow(ctx, 100, 30, 100, 150);
 //canvas_arrow(ctx, 400, 200, 100, 50);
@@ -104,7 +104,7 @@ function canvas_arrow(context, fromx, fromy, tox, toy) {
   context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
 }
 
-
+function getwater() {
 var c = document.getElementById("canvas");
 var grad = c.getContext("2d");
 
@@ -114,6 +114,8 @@ grd.addColorStop(1,"blue");
 
 grad.fillStyle = grd;
 grad.fillRect(0,0,400,300);
+	}	
+function getbodyandmass() {
 var canvas = document.getElementById("canvas");
 var body = canvas.getContext("2d");
 body.fillStyle = "#e0c200";
@@ -130,7 +132,8 @@ ctxt.fillText("G",180,145);
 ctxt.fillText("B",180,185);
 ctxt.fillText("K",180,230);
 ctxt.fillStyle = "#000000";
-
+}
+function getmarkingandarr() {
 var cline = canvas.getContext("2d");
 cline.moveTo(200,20);
 cline.lineTo(200,250);
@@ -145,21 +148,21 @@ cc.arc(200,185,2,0,2*Math.PI);
 cc.arc(200,230,2,0,2*Math.PI);
 cc.fillstyle = "black" ;
 cc.stroke();
+}
 
+function printvalue() {
+var ctxt1 = canvas.getContext("2d");
+ctxt1.font = "15px Arial";
+ctxt1.fillText("Angle - " + model.inputValueC , 10, 40);
 
-
-var ctx = canvas.getContext("2d");
-ctx.font = "15px Arial";
-ctx.fillText("Angle - "+ (this.model.inputValueC) , 10, 40);
-
-var ctx = canvas.getContext("2d");
-ctx.font = "15px Arial";
-ctx.fillText("Metacentric Height in mm - "+ this.metacentricHeight , 10, 20);
+var ctxt2 = canvas.getContext("2d");
+ctxt2.font = "15px Arial";
+ctxt2.fillText("Metacentric Height in mm - " + model.metacentricHeight , 10, 20);
 
 //var ctx = canvas.getContext("2d");
 //ctx.font = "15px Arial";
 //ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
-
+}
             </script>
         </div><!-- end of FirstInputBlock -->
     </div><!-- end of resultDisplay -->
