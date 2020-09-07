@@ -137,7 +137,7 @@ window.view ={
     validationInput: function () {
         var valueD1 = this.getValue('valueD');
         if (valueD1 === 0){
-            model.inputValueC = 0;
+            this.metacentricHeight = 0;
         }
         else if ( valueD1 === (-10)) {
             model.inputValueC = 0.02618;
@@ -192,14 +192,7 @@ window.view ={
         model.inputValueD = Math.abs(valueD1);
         this.changePropertyOfElements();
         // this.clearOutputValues(); //todo if required
-        this.restoreCanvas();
     },
-    // restoreCanvas: restore canvas it's initial state after clear previously drawed canvas.
-    restoreCanvas: function () {
-        this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height); // to clear previously drawed canvas.
-        this.canvasContext.restore(); // restore canvas it's initial state.
-        // this.drawCanvas(); // redraw graph on canvas.
-    }, //todo change
 
     // startExperiment: work to start code execution.
     startExperiment: function () {
@@ -208,12 +201,15 @@ window.view ={
         this.enableElement('nextBtnId');
         this.disableElement('startBtnId');
         this.applyColorClass('NumApproCodeContent1', 'redClass');
+        clearCanvas();
+        getwater();
         this.changeClass('startBtnId', 'myStartButton button');
         this.changeClass('stopBtnId', 'myStartButton button');
         this.changeClass('nextBtnId', 'nextButton button');
     },
     // stopExperiment: stop code execution at any point.
     stopExperiment: function () {
+        restoreCanvas();
         this.endOfExecution();
     },
     /* plotCurveArea: to draw and show canvas and set the values according step execution,
@@ -221,23 +217,25 @@ window.view ={
     plotCanvas: function () {
         this.currentSiblingElement = this.getElementByClass('redClass');
         if (this.currentSiblingElement.id === 'NumApproCodeContent10') {
+            restoreCanvas();
             this.endOfExecution();
         }
         this.nextSiblingElement = this.getNextSiblingElement(this.currentSiblingElement);
         if (this.nextSiblingElement.id === 'NumApproCodeContent2') {
             this.executionWithColour();
-            getwater();
+            getFloatingBody();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent3') {
             this.executionWithColour();
-            getbodyandmass();
+            getFloatingBody();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent4') {
             this.executionWithColour();
+            getbodyandmass();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent5') {
             this.executionWithColour();
-
+            canvas_arrow();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent6') {
             this.executionWithColour();
@@ -246,10 +244,12 @@ window.view ={
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent7') {
             this.executionWithColour();
-            printvalue();
+
+
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent8') {
             this.executionWithColour();
+            printvalue();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent9') {
             this.executionWithColour();
@@ -261,7 +261,6 @@ window.view ={
 
     // init: calls methods to draw canvas and activate events.
     init: function () {
-        // this.drawCanvas();
         this.activateEvents();
     }
 }
