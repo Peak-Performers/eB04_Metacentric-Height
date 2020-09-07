@@ -11,6 +11,7 @@ window.model = {
     }
 }
 
+
 window.view ={
     metacentricHeight: 0, //  round up the metacentricHeight(model.metacentricHeight) value to 2 decimal points.
     canvasContext: '', // canvasContext have many properties and methods for drawing paths, boxes, circles, text, images, and more.
