@@ -33,9 +33,9 @@
         <div class="inputDivisionTitle"><div class="experimentPic"></div><div class="experimentText">Initialize</div></div>
         <div class="inputDivisionBody" id="inputDivisionSimpleLoop">
             <div class="variableText">Initialize variables</div>
-            <input class="inputField" id="valueA" value="Value of total weight of floating object = 1.5 Kg " size="10" type="text"/>
-            <input class="inputField" id="valueB" value="Value of weight of load = 0.3056 Kg" size="10" type="text"/>
-            <label class="inputField" size="10" type="text"> Value of displacement in load (use range slider given below, in mm) :</label>
+            <input class="inputField" id="valueA" value="Value of total weight of floating object = 1.5 Kg " size="10" />
+            <input class="inputField" id="valueB" value="Value of weight of load = 0.3056 Kg" size="10">
+            <label class="inputField" size="10"> Value of displacement in load (use range slider given below, in mm) :</label>
             <input class="inputField" id="valueD" min="-80" max="80" value="0" step="10" size="10" type="range"/>
             <button class="button startButton" id="okBtnId">OK</button>
             <button class="buttonDisable myStartButton" disabled="" id="startBtnId">Start</button><button class="buttonDisable myStartButton hide" disabled="" id="stopBtnId">Stop</button>
@@ -177,7 +177,7 @@
         var ctxt2 = canvas.getContext("2d");
         ctxt2.font = "15px Arial";
         ctxt2.fillText("Metacentric Height in mm = " + model.metacentricHeight , 10, 20);
-        ctxt2.textAlign=top;
+        ctxt2.textAlign= top;
         //var ctx = canvas.getContext("2d");
         //ctx.font = "15px Arial";
         //ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
