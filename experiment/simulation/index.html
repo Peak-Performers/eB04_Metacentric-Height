@@ -70,12 +70,12 @@
     <div class="resultDisplay" id="resultDisplay">
         <div class="graph">
             <p><b>Simulation:</b></p>
-<br>
-
-<div id="image" style="width: 300px;"></div>
 
 <br>
   <canvas id="canvas" width="500" height="500" style="border:10px;">Your Browser does not support HTML 5 Canvas tag</canvas>
+<br>
+
+<div id="resultimg" style="width: 300px;"></div>
 
 
 <script type="text/javascript">
@@ -92,6 +92,7 @@
         this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
     }
 }
+	
 	
     var c = document.getElementById("canvas");
     var grad = c.getContext("2d");
@@ -195,6 +196,32 @@
         //var ctx = canvas.getContext("2d");
         //ctx.font = "15px Arial";
         //ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
+	    
+	    if (metacentricHeight < 0) {
+    msg = ' Unstable ';
+    imageshown = "unstable.png"
+  } 
+
+else {
+if ( metacentricHeight == 0) 
+{msg = ' Neutral ';
+     imageshown = "neutral.png"
+}
+else{
+     msg = ' Stable ';
+     imageshown = "stable.png"
+  }
+
+  var resultimg = document.getElementById('resultimg');
+  var img = result.nextElementSibling;
+
+  resultimg.textContent = msg;
+  img.src = imageshown;
+}
+
+
+
+	    
     }
 </script>
         </div><!-- end of FirstInputBlock -->
