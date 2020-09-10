@@ -79,6 +79,20 @@
 
 
 <script type="text/javascript">
+	
+	window.model = {
+    inputValueA: '', // user input W.
+    inputValueB: '', // user input w.
+    inputValueC: '', // user input tan(angle).
+    inputValueD:'', // user input displacement
+    metacentricHeight: 0, // metacentricHeight that compute by computeSum method.
+    width: 1, //width of executing one step.
+    //  computeSum: compute metacentricHeight of floating object
+    computeSum: function () {
+        this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
+    }
+}
+	
     var c = document.getElementById("canvas");
     var grad = c.getContext("2d");
     grad.font = "25px Arial";
