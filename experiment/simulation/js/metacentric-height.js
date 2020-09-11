@@ -19,6 +19,7 @@ window.view ={
     currentSiblingElement: new Object(), //  Object value of current sibling.
     nextSiblingElement: new Object(), //  Object value of next sibling.
     // addClickEvent: add EventListener to other methods.
+    
     addClickEvent: function (id, method) {
         var element = document.getElementById(id);
         element.addEventListener('click', method, false);

@@ -33,9 +33,9 @@
         <div class="inputDivisionTitle"><div class="experimentPic"></div><div class="experimentText">Initialize</div></div>
         <div class="inputDivisionBody" id="inputDivisionSimpleLoop">
             <div class="variableText">Initialize variables</div>
-            <input class="inputField" id="valueA" value="Value of total weight of floating object = 1.5 Kg " size="10" type="text"/>
-            <input class="inputField" id="valueB" value="Value of weight of load = 0.3056 Kg" size="10" type="text"/>
-            <label class="inputField" size="10" type="text"> Value of displacement in load (use range slider given below, in mm) :</label>
+            <input class="inputField" id="valueA" value="Value of total weight of floating object = 1.5 Kg " size="10" />
+            <input class="inputField" id="valueB" value="Value of weight of load = 0.3056 Kg" size="10">
+            <label class="inputField" size="10"> Value of displacement in load (use range slider given below, in mm) :</label>
             <input class="inputField" id="valueD" min="-80" max="80" value="0" step="10" size="10" type="range"/>
             <button class="button startButton" id="okBtnId">OK</button>
             <button class="buttonDisable myStartButton" disabled="" id="startBtnId">Start</button><button class="buttonDisable myStartButton hide" disabled="" id="stopBtnId">Stop</button>
@@ -70,15 +70,30 @@
     <div class="resultDisplay" id="resultDisplay">
         <div class="graph">
             <p><b>Simulation:</b></p>
-<br>
-
-<div id="image" style="width: 300px;"></div>
 
 <br>
   <canvas id="canvas" width="500" height="500" style="border:10px;">Your Browser does not support HTML 5 Canvas tag</canvas>
+<br>
+
+<div id="resultimg" style="width: 300px;"></div>
 
 
 <script type="text/javascript">
+	
+	window.model = {
+    inputValueA: '', // user input W.
+    inputValueB: '', // user input w.
+    inputValueC: '', // user input tan(angle).
+    inputValueD:'', // user input displacement
+    metacentricHeight: 0, // metacentricHeight that compute by computeSum method.
+    width: 1, //width of executing one step.
+    //  computeSum: compute metacentricHeight of floating object
+    computeSum: function () {
+        this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
+    }
+}
+	
+	
     var c = document.getElementById("canvas");
     var grad = c.getContext("2d");
     grad.font = "25px Arial";
@@ -142,7 +157,7 @@
     function getmarkingandarr() {
         ctx = document.getElementById("canvas").getContext("2d");
         ctx.beginPath();
-        canvas_arrow(ctx, 200, 50, 200+(200*model.inputValueC), 200);
+        canvas_arrow(ctx, 200, 50, 200+(200*this.inputValueC), 200);
         canvas_arrow(ctx, 200, 50, 200, 200);
         //canvas_arrow(ctx, 100, 30, 100, 150);
         //canvas_arrow(ctx, 400, 200, 100, 50);
@@ -176,11 +191,37 @@
         // ctxt1.fillText("Angle - " + model.inputValueC , 10, 40);
         var ctxt2 = canvas.getContext("2d");
         ctxt2.font = "15px Arial";
-        ctxt2.fillText("Metacentric Height in mm = " + model.metacentricHeight , 10, 20);
-        ctxt2.textAlign=top;
+        ctxt2.fillText("Metacentric Height in mm = " + this.metacentricHeight , 10, 20);
+        ctxt2.textAlign= top;
         //var ctx = canvas.getContext("2d");
         //ctx.font = "15px Arial";
         //ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
+	    
+	    if (metacentricHeight < 0) {
+    msg = ' Unstable ';
+    imageshown = "images/unstable.png"
+  } 
+
+else {
+if ( metacentricHeight == 0) 
+{msg = ' Neutral ';
+     imageshown = "images/neutral.png"
+}
+else{
+     msg = ' Stable ';
+     imageshown = "images/stable.png"
+  }
+
+  var resultimg = document.getElementById('resultimg');
+  var img = result.nextElementSibling;
+
+  resultimg.textContent = msg;
+  img.src = imageshown;
+}
+
+
+
+	    
     }
 </script>
         </div><!-- end of InputBlock -->
