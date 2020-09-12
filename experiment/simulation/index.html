@@ -36,7 +36,7 @@
             <input class="inputField" id="valueA" value="Value of total weight of floating object = 1.5 Kg " size="10" />
             <input class="inputField" id="valueB" value="Value of weight of load = 0.3056 Kg" size="10">
             <label class="inputField" size="10"> Value of displacement in load (use range slider given below, in mm) :</label>
-            <input class="inputField" id="valueD" min="-80" max="80" value="0" step="10" size="10" type="range"/>
+            <input class="inputField" class="slider" id="myRange" min="-80" max="80" value="0" step="10" size="10" type="range"/>
             <button class="button startButton" id="okBtnId">OK</button>
             <button class="buttonDisable myStartButton" disabled="" id="startBtnId">Start</button><button class="buttonDisable myStartButton hide" disabled="" id="stopBtnId">Stop</button>
             <button class="buttonDisable nextButton" disabled="" id="nextBtnId">Next</button>
@@ -79,21 +79,88 @@
 
 
 <script type="text/javascript">
-	
-	window.model = {
-    inputValueA: '', // user input W.
-    inputValueB: '', // user input w.
-    inputValueC: '', // user input tan(angle).
-    inputValueD:'', // user input displacement
-    metacentricHeight: 0, // metacentricHeight that compute by computeSum method.
-    width: 1, //width of executing one step.
-    //  computeSum: compute metacentricHeight of floating object
-    computeSum: function () {
-        this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
+
+    // getValue: return value from element.
+    function getValue (id) {
+        var value = document.getElementById(id);
+        return value;
     }
-}
-	
-	
+
+    var slider = document.getElementById("myRange");
+    var inputValueD;
+    inputValueD = slider.value;
+    var inputValueA= 1.5;
+    var inputValueB= 0.3056;
+    var inputValueC=0;
+    var metacentricHeight=0;
+    slider.oninput = handleInput;
+    function handleInput() {
+        inputValueD = this.value;
+        if (inputValueD === "0"){
+            metacentricHeight = 0;
+        }
+        else{
+            if (inputValueD === "-10") {
+                inputValueC = 0.02618;
+            }
+            else if (inputValueD === "-20") {
+                inputValueC = 0.05240;
+            }
+            else if (inputValueD === "-30") {
+                inputValueC = 0.07870;
+            }
+            else if (inputValueD === "-40") {
+                inputValueC = 0.10514;
+            }
+            else if (inputValueD === "-50") {
+                inputValueC = 0.13165;
+            }
+            else if (inputValueD === "-60") {
+                inputValueC = 0.15838;
+            }
+            else if (inputValueD === "-70") {
+                inputValueC = 0.18533;
+            }
+            else if (inputValueD === "-80") {
+                inputValueC = 0.20345;
+            }
+            else if (inputValueD === "10") {
+                inputValueC = 0.02618;
+            }
+            else if (inputValueD === "20") {
+                inputValueC = 0.04366;
+            }
+            else if (inputValueD === "30") {
+                inputValueC = 0.07870;
+            }
+            else if (inputValueD === "40") {
+                inputValueC = 0.09628;
+            }
+            else if (inputValueD === "50" ) {
+                inputValueC = 0.13165;
+            }
+            else if (inputValueD === "60" ) {
+                inputValueC = 0.14945;
+            }
+            else if	( inputValueD === "70" ) {
+                inputValueC = 0.17632;
+            }
+            else if (inputValueD === "80") {
+                inputValueC = 0.20345;
+            }
+            metacentricHeight= (inputValueB*Math.abs(parseInt(inputValueD)))/((inputValueA+inputValueB)*(inputValueC));
+        }
+        var ctxt1 = canvas.getContext("2d");
+        ctxt1.font = "15px Arial";
+        // ctxt1.fillText("Angle - " + inputValueC , 10, 40);
+        var ctxt2 = canvas.getContext("2d");
+        ctxt2.font = "15px Arial";
+        ctxt2.fillText("Metacentric Height in mm = " + metacentricHeight , 10, 20);
+        ctxt2.textAlign= top;
+
+    }
+
+
     var c = document.getElementById("canvas");
     var grad = c.getContext("2d");
     grad.font = "25px Arial";
@@ -157,7 +224,7 @@
     function getmarkingandarr() {
         ctx = document.getElementById("canvas").getContext("2d");
         ctx.beginPath();
-        canvas_arrow(ctx, 200, 50, 200+(200*this.inputValueC), 200);
+        canvas_arrow(ctx, 200, 50, 200+(200*inputValueC), 200);
         canvas_arrow(ctx, 200, 50, 200, 200);
         //canvas_arrow(ctx, 100, 30, 100, 150);
         //canvas_arrow(ctx, 400, 200, 100, 50);
@@ -188,40 +255,35 @@
     function printvalue() {
         var ctxt1 = canvas.getContext("2d");
         ctxt1.font = "15px Arial";
-        // ctxt1.fillText("Angle - " + model.inputValueC , 10, 40);
+        // ctxt1.fillText("Angle - " + inputValueC , 10, 40);
         var ctxt2 = canvas.getContext("2d");
         ctxt2.font = "15px Arial";
-        ctxt2.fillText("Metacentric Height in mm = " + this.metacentricHeight , 10, 20);
+        ctxt2.fillText("Metacentric Height in mm = " + metacentricHeight , 10, 20);
         ctxt2.textAlign= top;
         //var ctx = canvas.getContext("2d");
         //ctx.font = "15px Arial";
-        //ctx.fillText("some text-"+(Math.tan(this.inputValueC)) , 10, 60);
-	    
+        //ctx.fillText("some text-"+(Math.tan(inputValueC)) , 10, 60);
+
 	    if (metacentricHeight < 0) {
-    msg = ' Unstable ';
-    imageshown = "images/unstable.png"
-  } 
+            msg = ' Unstable ';
+            imageshown = "images/unstable.png"
+        }
 
-else {
-if ( metacentricHeight == 0) 
-{msg = ' Neutral ';
-     imageshown = "images/neutral.png"
-}
-else{
-     msg = ' Stable ';
-     imageshown = "images/stable.png"
-  }
+        else if ( metacentricHeight === 0) {
+            msg = ' Neutral ';
+            imageshown = "images/neutral.png"
+        }
 
-  var resultimg = document.getElementById('resultimg');
-  var img = result.nextElementSibling;
+        else{
+            msg = ' Stable ';
+            imageshown = "images/stable.png"
+        }
 
-  resultimg.textContent = msg;
-  img.src = imageshown;
-}
+        var resultimg = document.getElementById('resultimg');
+        var img = result.nextElementSibling;
 
-
-
-	    
+        resultimg.textContent = msg;
+        img.src = imageshown;
     }
 </script>
         </div><!-- end of InputBlock -->
