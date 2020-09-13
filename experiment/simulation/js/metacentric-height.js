@@ -6,9 +6,9 @@ window.model = {
     metacentricHeight: 0, // metacentricHeight that compute by computeSum method.
     width: 1, //width of executing one step.
     //  computeSum: compute metacentricHeight of floating object
-    computeSum: function () {
-        this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
-    }
+    // compute: function () {
+    //     this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
+    // }
 }
 
 
@@ -100,7 +100,7 @@ window.view ={
         model.inputValueC = '';
         model.inputValueD = '';
         model.metacentricHeight = 0;
-        this.metacentricHeight = 0;
+        // this.metacentricHeight = 0;
     },
     // resetTextFieldValue: reset text field to their initial state.
     resetTextFieldValue: function () {
@@ -136,7 +136,84 @@ window.view ={
     /* validationInput: check validation of input that is given by user and if input value is valid
     then make text field and ok button disable and make start button enable. */
     validationInput: function () {
+        var slider = this.getValue("myRange");
+        var inputValueD;
+        inputValueD = slider;
+        if(inputValueD==="0"){
+            metacentricHeight = 0;
+            alert("There is no displacement in load,it is at the centre of the load" +
+              "Metacentric Height in mm = 0mm ");
+        }
+        var inputValueA= 1.5;
+        var inputValueB= 0.3056;
+        var inputValueC=0;
+        var metacentricHeight=0;
+        slider.oninput = function(){
+            inputValueD = this.value;
+            if (inputValueD === "0"){
+                metacentricHeight = 0;
+            }
+            else{
+                if (inputValueD === "-10") {
+                    inputValueC = 0.02618;
+                }
+                else if (inputValueD === "-20") {
+                    inputValueC = 0.05240;
+                }
+                else if (inputValueD === "-30") {
+                    inputValueC = 0.07870;
+                }
+                else if (inputValueD === "-40") {
+                    inputValueC = 0.10514;
+                }
+                else if (inputValueD === "-50") {
+                    inputValueC = 0.13165;
+                }
+                else if (inputValueD === "-60") {
+                    inputValueC = 0.15838;
+                }
+                else if (inputValueD === "-70") {
+                    inputValueC = 0.18533;
+                }
+                else if (inputValueD === "-80") {
+                    inputValueC = 0.20345;
+                }
+                else if (inputValueD === "10") {
+                    inputValueC = 0.02618;
+                }
+                else if (inputValueD === "20") {
+                    inputValueC = 0.04366;
+                }
+                else if (inputValueD === "30") {
+                    inputValueC = 0.07870;
+                }
+                else if (inputValueD === "40") {
+                    inputValueC = 0.09628;
+                }
+                else if (inputValueD === "50" ) {
+                    inputValueC = 0.13165;
+                }
+                else if (inputValueD === "60" ) {
+                    inputValueC = 0.14945;
+                }
+                else if	( inputValueD === "70" ) {
+                    inputValueC = 0.17632;
+                }
+                else if (inputValueD === "80") {
+                    inputValueC = 0.20345;
+                }
+                metacentricHeight= (inputValueB*Math.abs(parseInt(inputValueD)))/((inputValueA+inputValueB)*(inputValueC));
+            }
+            model.inputValueA = 1.5;
+            model.inputValueB = 0.3056;
+            model.inputValueC= inputValueC;
+            model.inputValueD = Math.abs(inputValueD);
+            model.metacentricHeight= metacentricHeight;
+
+        }
+
         this.changePropertyOfElements();
+        clearCanvas();
         // this.clearOutputValues(); //todo if required
     },
 
@@ -147,7 +224,6 @@ window.view ={
         this.enableElement('nextBtnId');
         this.disableElement('startBtnId');
         this.applyColorClass('NumApproCodeContent1', 'redClass');
-        clearCanvas();
         getwater();
         this.changeClass('startBtnId', 'myStartButton button');
         this.changeClass('stopBtnId', 'myStartButton button');
@@ -181,7 +257,9 @@ window.view ={
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent5') {
             this.executionWithColour();
-            canvas_arrow();
+            clearCanvas();
+            getwater();
+            displacedInLoad();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent6') {
             this.executionWithColour();
@@ -195,7 +273,6 @@ window.view ={
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent8') {
             this.executionWithColour();
-            handleInput()
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent9') {
             this.executionWithColour();

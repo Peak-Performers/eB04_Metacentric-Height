@@ -54,7 +54,7 @@
             <div id="NumApproCodeContent5">5. Now displaced the load at a known distance Y from the centre of the beam. </div>
             <div id="NumApproCodeContent6">6. Now the floating body will tilt at some angle on one side and observe the tilt angle.</div>
             <div id="NumApproCodeContent7">7. Finally, calculate the metacentric height using the given formula.</div>
-            <div id="NumApproCodeContent8">Metacentric Height = (w*Y)/((W+w)*tan(θ) </div>
+            <div id="NumApproCodeContent8">Metacentric Height(GM) = (w*Y)/((W+w)*tan(θ) </div>
             <div id="NumApproCodeContent9">where,</div>
             <div id="NumApproCodeContent10">Weight of floating body = W <br/>
                 Additional weight added on the horizontal beam of the floating body = w <br/>
@@ -86,7 +86,7 @@
         return value;
     }
 
-    var slider = document.getElementById("myRange");
+    var slider = getValue("myRange");
     var inputValueD;
     inputValueD = slider.value;
     var inputValueA= 1.5;
@@ -152,20 +152,59 @@
         }
         var ctxt1 = canvas.getContext("2d");
         ctxt1.font = "15px Arial";
-        // ctxt1.fillText("Angle - " + inputValueC , 10, 40);
+        ctxt1.fillText("tan(Tilt Angle) (tanθ) = " + inputValueC , 100, 160);
+        // ctxt1.textAlign= "top";
         var ctxt2 = canvas.getContext("2d");
         ctxt2.font = "15px Arial";
-        ctxt2.fillText("Metacentric Height in mm = " + metacentricHeight , 10, 20);
-        ctxt2.textAlign= top;
+        ctxt2.fillText("Metacentric Height in mm (GM) = " + metacentricHeight , 100, 280);
+        // ctxt2.textAlign= "top";
+        var ctxt3 = canvas.getContext("2d");
+        ctxt3.font = "15px Arial";
+        ctxt3.fillText("Weight of floating object in kg (W) = " + inputValueA , 100, 40);
+        var ctxt5 = canvas.getContext("2d");
+        ctxt5.font = "15px Arial";
+        ctxt5.fillText("Weight of Load in kg (w) = " + inputValueB , 100, 80);
+        // ctxt3.textAlign= "center";
+        if((Math.sign(parseInt(inputValueD)))=== -1){
+            var ctxt4 = canvas.getContext("2d");
+            ctxt4.font = "15px Arial";
+            ctxt4.fillText("Displacement in mm (Y) = " + Math.abs(parseInt(inputValueD)) + " Direction = Left" , 100, 120);
+        }
+        else if((Math.sign(parseInt(inputValueD)))=== 1){
+            var ctxt4 = canvas.getContext("2d");
+            ctxt4.font = "15px Arial";
+            ctxt4.fillText("Displacement in mm (Y) = " + Math.abs(parseInt(inputValueD)) + " Direction = Right" , 100, 120);
+        }
+        else{
+            var ctxt4 = canvas.getContext("2d");
+            ctxt4.font = "15px Arial";
+            ctxt4.fillText("Displacement in mm (Y) = 0 " + " Direction = center " + " Metacentric Height in mm = 0" , 80, 120);
+        }
+        var ctxt6 = canvas.getContext("2d");
+        ctxt6.font = "15px Arial";
+        ctxt6.fillText("Formula : ", 100, 200);
+        var ctxt7 = canvas.getContext("2d");
+        ctxt7.font = "15px Arial";
+        ctxt7.fillText("Metacentric Height (GM) = (w*Y)/((W+w)*tanθ) ", 100, 240);
+
 
     }
 
 
-    var c = document.getElementById("canvas");
-    var grad = c.getContext("2d");
-    grad.font = "25px Arial";
-    grad.fillText("Metacentric Height of a floating object" , 10, 40);
+    // var c = document.getElementById("canvas");
+    // var grad = c.getContext("2d");
+    // grad.font = "25px Arial";
+    // grad.fillText("Metacentric Height of a floating object" , 10, 40);
 
+     function printValue(){
+         var ctxt1 = canvas.getContext("2d");
+         ctxt1.font = "15px Arial";
+         // ctxt1.fillText("Angle - " + inputValueC , 10, 40);
+         var ctxt2 = canvas.getContext("2d");
+         ctxt2.font = "15px Arial";
+         ctxt2.fillText("Metacentric Height in mm = " + model.metacentricHeight , 10, 20);
+         ctxt2.textAlign= top;
+     }
     //clear the canvas
     function clearCanvas() {
         var c = document.getElementById("canvas");
@@ -207,6 +246,30 @@
         var xmass = canvas.getContext("2d");
         xmass.fillStyle = "#FF0000";
         xmass.fillRect(170,40,60,40);
+    }
+
+    function displacedInLoad(){
+        var canvas = document.getElementById("canvas");
+        var body = canvas.getContext("2d");
+        body.fillStyle = "#e0c200";
+        body.fillRect(100,80,200,150);
+        var xmass = canvas.getContext("2d");
+        xmass.fillStyle = "#FF0000";
+        var inputValueD;
+        slider.oninput = handleInput;
+        function handleInput() {
+            inputValueD = this.value;
+            inputValueD = parseInt(inputValueD);
+        }
+        if((Math.sign(this.inputValueD))=== -1){
+            xmass.fillRect(160,40,50,40);
+        }
+        else if((Math.sign(this.inputValueD))===1){
+            xmass.fillRect(180, 40, 70, 40);
+        }
+        else{
+            xmass.fillRect(170, 40, 60, 40);
+        }
     }
 
     function canvas_arrow(context, fromx, fromy, tox, toy) {
