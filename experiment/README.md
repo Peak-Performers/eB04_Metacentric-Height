@@ -1,41 +1,76 @@
 ## Storyboard (Round 2)
 
-Delete this line before submission : The core principle of Round 2 is to make the lab/experiment documentation elaborated in a manner that it makes easy for any person (developer/domain and non domain faculty/student) to understand and develop the lab/experiment.
 
-Experiment 1: Name of the Experiment
+Experiment 1: To determine the meta-centric height of a floating body.
 
 ### 1. Story Outline:
 
-Describe outline Here ( guide : The proposer should first draft the story outline for the proposed outline. This could be 2 or 3 paragraphs.)
+This experiment is based on the calculation of the meta-centric height of a floating body. The formula of meta-centric height requires four values i.e. Weight of the floating body(W), the weight of the load(w), the distance of the load from the center of the floating body(x), and the tilt angle(θ). The weight of the floating body and the weight of the load already have a fixed value. Users can choose the value of the distance of the load from the center of the floating body and by all these values, the tilt angle can also be calculated. <br>
+The simulator will perform operations in interaction with the user, and the value of meta-centric height is obtained. 
 
 ### 2. Story:
 
-Describe the Story intorduction here (guide : The next step is to write a story. Story should be a brief logical description in simple English. It should talk about the overall execution of the experiment in a simplified manner. (should not include any equations/ drawings). The story should include the following points) )
+The experiment is based on calculation of the meta-centric height of a floating body. Meta-center is defined as a point about which a body starts oscillating in the fluid when it is tilted by a small angle. Force of buoyancy is the upward force exerted by the fluid on the body. The weight of the body (force) acted along downward across the center of gravity of the body. If the body is placed in the fluid then the buoyancy force will act vertically and is equal to the weight of the fluid displaced by the body. The distance between the meta-center of the floating body and the center of gravity of the body is called meta-centric height. The simulator is designed to calculate the meta-centric height of the body using its empirical formula. This empirical formula requires four values namely Weight of floating body(W), the weight of the load(w), a distance of the load from the center(x), and tilt angle(θ). The user chooses the distance of the load from the center by moving the slider either to the left or right side. The value of the tilt angle is calculated by these three values. The user enters the OK button to confirm the values. The user then clicks on the Start button and the simulator gets started, highlighting the executing step. A tank filled with water appears. On clicking it again, a floating body is placed in the water tank. The user then clicks the Next button a small load is placed on the floating body. On again clicking it the load displaces to a distance selected by the user. On clicking it again, the values are placed into the empirical formula. After clicking it again the user can obtain the metacentric height of a floating body. <br>
+Once the metacentric height is obtained the state of the equilibrium can also be determined. The whole story design process of the simulation experiment consists of the description of the visual stage, the goals and objectives planned and the pathway set for the learner. Moreover, a few challenges and pitfalls are also set to underline and emphasize the concepts involved in the experimentation. Every stage is described thoroughly in the following subsections.
 
 #### 2.1 Set the Visual Stage Description:
-Describe here : (guide When a user lands up into a simulator, the visual stage is the first thing that user comes across. The visual stage should include all the elements to be seen by a user on an imaginary canvas.  (This should NOT include any drawings. ) )
+When the student visits the link on the simulator page, he/she sees the experiment name on the top and four blocks namely Instructions, Initialize, Step Execution and Result Visualization on the screen. The visual description of each block is mentioned below:<br>
+<b>A.	Instructions block:</b> In this block the instructions for operating the simulator are mentioned.<br>
+<b>B. Initialize block:</b> In this block there are two input field in which the predefined weights of the floating body and load are mentioned. There is a slider of blue color through which the user can choose the value of the position of the weight (w) of the load on the floating body. There are three buttons namely OK, Start and Next. At initial stage, only grey-coloured OK button is enabled and once the OK button is clicked both the buttons get enabled. The Start button of Bluish pink color starts the simulation and the once the start button is clicked it is replaced by the Stop button. And the user will click the bluish-pink coloured Next button until the metacentric height is calculated.<br>
+<b>C.	Step Execution Block:</b> In this block all the steps of execution are mentioned. On clicking Start button the executions of the steps start. The text in the step execution block changes its color from black to red color during execution. On every click of Next button, the result in result visualization changes.<br>
+<b>D.	Result Visualization block:</b> At the initial stage it is blank. On every step, the output in this block changes.    
 
 #### 2.2 Set User Objectives & Goals:
-Describe the objectives and goals in details here : (guide : The user should clearly understand the aims and objective of the experiment. ( how he will begin experiment. ?  in descriptive))
+The main objective of this experiment is to calculate the meta-centric height of the floating body. At the end of the module the student would be able to understand:<br>
+1.	The position of buoyancy, center of gravity, and meta-center.<br>
+2.	Different equilibrium conditions for the floating body.<br>
+3.	Concept of the moment on the floating body if it is tilted by an angle.<br>
+4.	Calculation of meta-centric height.<br>
 
 #### 2.3 Set the Pathway Activities:
-
-Describe the pathway activites here : (Guide : Set the pathway activities in line with the learning objectives (LOs)  & with a view to achieve the goals set in round #0 & round#1.  (once he begins, how he will traverse through the entire experiment ? in descriptive))
+1.	Click on the Simulation tab.<br>
+2.	User will scroll the slider either to right or left side to set the distance of load from center of floating body.<br>
+3.	User will click on OK button of the Initialize block.<br>
+4.	User will click the start button a tank filled with water appears in Result Visualization block.<br>
+5.	Simulator will highlight the execution step of the Step Execution block.<br>
+6.	User will click the Next button a floating body is placed in the water tank in Result Visualization block.<br>
+7.	User will click the Next button again a small load is placed on the floating body.<br>
+8.	User will click the Next button again the load displaces to a certain distance.<br>
+9.	User will click the Next button again the floating body due to this displacement will tilt.<br>
+10.	User will click the Next button again the values are placed in the formula.<br>
+11.	User will click the Next button again the simulator will display the metacentric height in the result visualization block.<br>
 
 ##### 2.4 Set Challenges and Questions/Complexity/Variations in Questions:
+Task 1: Multiple choice questions based on LO1, LO2, LO3, and LO4.<br>
+Difficulty level: Remember<br>
+1. Consider the floating body, the relationship between meta-center (M) and center of gravity(G)  is: <br><b> A. M is above G </b><br> B. M is below G <br> C. M is at G <br> D. None of the above <br><br>
+2. Metacentric height is denoted by: <br>A. GB  <br><b>B. GM</b> <br> C. GK <br> D. GB <br><br>
+3. If the meta-center (M) and center of gravity (G) for the floating body are in the same position, then the condition is: <br>A.Stable equilibrium  <br> B.Unstable equilibrium<br><b>C. Neutral equilibrium </b> <br> D. 4.	None of the above <br><br>
+4. The weight of the body can be calculated by using the formula: <br>A. Volume of water + Density of water  <br>B. Volume of water/ Density of water  <br><b> C. Volume of water * Density of water</b> <br> D. None of these  <br><br>
 
-Describe the challenges Here : (guide : Set Challenges and Questions/Complexity/variations in questions according to User’s level, so as to invoke the learners’ interest.  (while traversing, what challenges he will face? how he has to solve and overcome ? descriptive).)
 
 ##### 2.5 Allow pitfalls:
-Describe the pitfalls here: (guide : (while traversing or while solving challenge, how will we bring a situation in front of him that he commits mistake if he is not attentive , or not following procedure , descriptive))
+1. If user clicked the stop button during the step execution all values will reset.<br>
+2. Once the OK button is clicked, the values are fixed for the entire step executions for the calculation of metacentric height. Thus, for changing the input given by user, the page has to be refreshed.<br>
+3. The value of distance of load from center of the floating body can only be given by the user through the slider.<br>
+
 
 ##### 2.6 Conclusion:
-Describe conclusion here : (guide: This may include displaying: how much time did the user take to solve the questions/ How many questions were right?/ How many hints did the learner use. Based on this the evaluation/marking to be suggested to the user. (once he is towards the completion of the experiment, what LO he is taking along with him, what will be his probable, interpretation/conclusion , descriptive) )
+1.	User will take 5 minutes to understand the instructions.<br>
+2.	User will take around 20 minutes to complete the experiment and to do the self-assessment.<br>
+3.	At the end of the experiment, the user could able to calculate the meta-centric height of the floating body.<br>
+4.	After completing the experiment user would be able to interpret different equilibrium conditions of the floating body based on experimental results of meta-centric height.<br>
+5.	At the end of experiment the user will be able determine the position of buoyancy, center of gravity, and meta-center.<br>
+
 
 ##### 2.7 Equations/formulas: NA
-Type equations here : (guide : ( a separate sheet having equations / programs for the lab exper3ment to be shared along with the Story submissions (1) . You can mark it as numerical reference numbers within the story narration (like we cite in the research papers) and then separately share these equations/programs sheets as a reference, do not include the equations as a whole in the narration))
-Tool can be used to integrate formula in Markdown <b> [here](http://latex.codecogs.com/eqneditor/samples/example3.php) </b>
-
+The empirical formula for Meta-centric height (GM) is:<br>
+GM = (w*Y)/(W+w)*tanθ <br>
+where,<br>
+W= Weight of the floating body<br>
+w= Weight of load<br>
+Y= Distance of load from center of the floating body <br>
+θ = Tilt angle
 
 ### 3. Flowchart 4
 <img src="flowchart/flowchart.png"/><br>
