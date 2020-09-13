@@ -43,10 +43,10 @@ The main objective of this experiment is to calculate the meta-centric height of
 ##### 2.4 Set Challenges and Questions/Complexity/Variations in Questions:
 Task 1: Multiple choice questions based on LO1, LO2, LO3, and LO4.<br>
 Difficulty level: Remember<br>
-1. Consider the floating body, the relationship between meta-center (M) and center of gravity(G)  is: <br><b> A. M is above G </b><br> B. M is below G <br> C. M is at G <br> D. None of the above <br><br>
-2. Metacentric height is denoted by: <br>A. GB  <br><b>B. GM</b> <br> C. GK <br> D. GB <br><br>
-3. If the meta-center (M) and center of gravity (G) for the floating body are in the same position, then the condition is: <br>A.Stable equilibrium  <br> B.Unstable equilibrium<br><b>C. Neutral equilibrium </b> <br> D. 4.	None of the above <br><br>
-4. The weight of the body can be calculated by using the formula: <br>A. Volume of water + Density of water  <br>B. Volume of water/ Density of water  <br><b> C. Volume of water * Density of water</b> <br> D. None of these  <br><br>
+1. Consider the floating body, the relationship between meta-center (M) and center of gravity(G)  is: <br><b> A. M is above G </b><br> B. M is below G <br> C. M is at G <br> D. None of the above <br>
+2. Metacentric height is denoted by: <br>A. GB  <br><b>B. GM</b> <br> C. GK <br> D. GB <br>
+3. If the meta-center (M) and center of gravity (G) for the floating body are in the same position, then the condition is: <br>A.Stable equilibrium  <br> B.Unstable equilibrium<br><b>C. Neutral equilibrium </b> <br> D. 4.	None of the above <br>
+4. The weight of the body can be calculated by using the formula: <br>A. Volume of water + Density of water  <br>B. Volume of water/ Density of water  <br><b> C. Volume of water * Density of water</b> <br> D. None of these  <br>
 
 
 ##### 2.5 Allow pitfalls:
