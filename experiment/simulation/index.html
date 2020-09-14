@@ -33,8 +33,8 @@
         <div class="inputDivisionTitle"><div class="experimentPic"></div><div class="experimentText">Initialize</div></div>
         <div class="inputDivisionBody" id="inputDivisionSimpleLoop">
             <div class="variableText">Initialize variables</div>
-            <input class="inputField" id="valueA" value="Value of total weight of floating object = 1.5 Kg " size="10" />
-            <input class="inputField" id="valueB" value="Value of weight of load = 0.3056 Kg" size="10">
+            <label class="inputField" id="valueA" size="10" >Value of total weight of floating object = 1.5 Kg </label>
+            <label class="inputField" id="valueB" size="10">Value of weight of load = 0.3056 Kg</label>
             <label class="inputField" size="10"> Value of displacement in load (use range slider given below, in mm) :</label>
             <input class="inputField" class="slider" id="myRange" min="-80" max="80" value="0" step="10" size="10" type="range"/>
             <button class="button startButton" id="okBtnId">OK</button>
@@ -187,7 +187,15 @@
         ctxt7.font = "15px Arial";
         ctxt7.fillText("Metacentric Height (GM) = (w*Y)/((W+w)*tanθ) ", 100, 240);
 
+        disableElement("myRange");
 
+
+
+    }
+
+    // disableElement: makes element disable.
+    function disableElement(Id) {
+        document.getElementById(Id).disabled = true;
     }
 
 

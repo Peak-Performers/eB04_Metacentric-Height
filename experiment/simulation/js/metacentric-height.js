@@ -88,6 +88,7 @@ window.view ={
         this.disableElement('okBtnId');
         this.disableElement('valueA');
         this.disableElement('valueB');
+        // this.disableElement('myRange');
         this.changeClass('okBtnId', 'buttonDisable startButton');
         this.changeClass('startBtnId', 'button myStartButton');
     },
@@ -97,14 +98,21 @@ window.view ={
     },
     // resetVariables: reset all variables to it's initial state.
     resetVariables: function () {
+        model.inputValueA = '';
+        model.inputValueB = '';
         model.inputValueC = '';
         model.inputValueD = '';
+        // this.xCoordinatesValue = 0;
+        // this.yCoordinatesValue = 0;
         model.metacentricHeight = 0;
-        // this.metacentricHeight = 0;
+        this.metacentricHeight = 0;
     },
     // resetTextFieldValue: reset text field to their initial state.
     resetTextFieldValue: function () {
-        this.setValue('valueD', 0);
+        this.setValue('valueA', '');
+        this.setValue('valueB', '');
+        // this.setValue('valueC', '');
+        this.setValue('myRange', '');
     },
     // resetButtonAndTextField: reset button it's initial state and do text field enable.
     resetButtonAndTextField: function () {
@@ -121,7 +129,7 @@ window.view ={
     },
     // endOfExecution: work at end of code execution and with stop button to reset whole experiment at it's initial state.
     endOfExecution: function () {
-        //this.clearOutputValues();  todo call if use it
+        // this.clearOutputValues();
         this.resetVariables();
         this.resetTextFieldValue();
         this.resetButtonAndTextField();
@@ -140,80 +148,14 @@ window.view ={
         var inputValueD;
         inputValueD = slider;
         if(inputValueD==="0"){
-            metacentricHeight = 0;
+            // metacentricHeight = 0;
             alert("There is no displacement in load,it is at the centre of the load" +
-              "Metacentric Height in mm = 0mm ");
+                " Metacentric Height in mm = 0mm ");
         }
-        var inputValueA= 1.5;
-        var inputValueB= 0.3056;
-        var inputValueC=0;
-        var metacentricHeight=0;
-        slider.oninput = function(){
-            inputValueD = this.value;
-            if (inputValueD === "0"){
-                metacentricHeight = 0;
-            }
-            else{
-                if (inputValueD === "-10") {
-                    inputValueC = 0.02618;
-                }
-                else if (inputValueD === "-20") {
-                    inputValueC = 0.05240;
-                }
-                else if (inputValueD === "-30") {
-                    inputValueC = 0.07870;
-                }
-                else if (inputValueD === "-40") {
-                    inputValueC = 0.10514;
-                }
-                else if (inputValueD === "-50") {
-                    inputValueC = 0.13165;
-                }
-                else if (inputValueD === "-60") {
-                    inputValueC = 0.15838;
-                }
-                else if (inputValueD === "-70") {
-                    inputValueC = 0.18533;
-                }
-                else if (inputValueD === "-80") {
-                    inputValueC = 0.20345;
-                }
-                else if (inputValueD === "10") {
-                    inputValueC = 0.02618;
-                }
-                else if (inputValueD === "20") {
-                    inputValueC = 0.04366;
-                }
-                else if (inputValueD === "30") {
-                    inputValueC = 0.07870;
-                }
-                else if (inputValueD === "40") {
-                    inputValueC = 0.09628;
-                }
-                else if (inputValueD === "50" ) {
-                    inputValueC = 0.13165;
-                }
-                else if (inputValueD === "60" ) {
-                    inputValueC = 0.14945;
-                }
-                else if	( inputValueD === "70" ) {
-                    inputValueC = 0.17632;
-                }
-                else if (inputValueD === "80") {
-                    inputValueC = 0.20345;
-                }
-                metacentricHeight= (inputValueB*Math.abs(parseInt(inputValueD)))/((inputValueA+inputValueB)*(inputValueC));
-            }
-            model.inputValueA = 1.5;
-            model.inputValueB = 0.3056;
-            model.inputValueC= inputValueC;
-            model.inputValueD = Math.abs(inputValueD);
-            model.metacentricHeight= metacentricHeight;
-
-        }
-
+        model.inputValueA=1.5;
+        model.inputValueB=0.3056;
         this.changePropertyOfElements();
-        clearCanvas();
+
         // this.clearOutputValues(); //todo if required
     },
 
