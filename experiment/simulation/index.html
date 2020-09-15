@@ -47,7 +47,7 @@
     <div class="executionDivisionTitle"><div class="executionPic"></div><div class="executionText">Step Execution</div></div>
     <div class="stepExecutionDisplay">
         <div class="programCode" id="NumApproCode">
-            <div id="NumApproCodeContent1">1. Take an empty tank and fill it with water up, the height of the water level is (Z1).</div>
+            <div id="NumApproCodeContent1">1. Take an empty tank and fill it with water up, the height of the water level is Z1.</div>
             <div id="NumApproCodeContent2">2. Now place the floating body having weight W in the tank,the water level rises upto Z2. </div>
             <div id="NumApproCodeContent3">3. Adjust the floating ship.</div>
             <div id="NumApproCodeContent4">4. After adjusting, add load of weight (w) to the horizontal beam of the floating body at centre of the beam.</div>
@@ -55,12 +55,14 @@
             <div id="NumApproCodeContent6">6. Now the floating body will tilt at some angle on one side and observe the tilt angle.</div>
             <div id="NumApproCodeContent7">7. Finally, calculate the metacentric height using the given formula.</div>
             <div id="NumApproCodeContent8">Metacentric Height(GM) = (w*Y)/((W+w)*tan(θ) </div>
-            <div id="NumApproCodeContent9">where,</div>
-            <div id="NumApproCodeContent10">Weight of floating body = W <br/>
+            <div id="NumApproCodeContent9">where,<br/>
+                Weight of floating body = W <br/>
                 Additional weight added on the horizontal beam of the floating body = w <br/>
                 The distance of w from the center = Y<br/>
                 Tilt angle = θ
                 <br/>
+            </div>
+            <div id="NumApproCodeContent10">Now you are able to answer the following Question  :
             </div>
         </div><!-- end of programCode -->
     </div><!-- end of stepExecutionDisplay -->
@@ -189,8 +191,6 @@
 
         disableElement("myRange");
 
-
-
     }
 
     // disableElement: makes element disable.
@@ -198,21 +198,24 @@
         document.getElementById(Id).disabled = true;
     }
 
+    // var canvas = document.getElementById("canvas");
+    // var body = canvas.getContext("2d");
+    // body.fillStyle = "#ffffff";
+    // body.fillRect(500, 10, 800, 500);
 
-    // var c = document.getElementById("canvas");
-    // var grad = c.getContext("2d");
-    // grad.font = "25px Arial";
-    // grad.fillText("Metacentric Height of a floating object" , 10, 40);
+
 
      function printValue(){
          var ctxt1 = canvas.getContext("2d");
-         ctxt1.font = "15px Arial";
-         // ctxt1.fillText("Angle - " + inputValueC , 10, 40);
+         ctxt1.font = "10px Arial";
+         ctxt1.fillText("Yellow Object - Floating Object" , 10, 40);
+         ctxt1.textAlign= "right";
          var ctxt2 = canvas.getContext("2d");
-         ctxt2.font = "15px Arial";
-         ctxt2.fillText("Metacentric Height in mm = " + model.metacentricHeight , 10, 20);
-         ctxt2.textAlign= top;
+         ctxt2.font = "10px Arial";
+         ctxt2.fillText("Red Object - Load on Floating Object" , 10, 30);
+         ctxt2.textAlign= "right";
      }
+
     //clear the canvas
     function clearCanvas() {
         var c = document.getElementById("canvas");

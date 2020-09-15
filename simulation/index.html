@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Mechanical Lab</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="css/nstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/metacentric-height.css" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
-$END$
+
+<nav class="navbar navbar-default1 visible-lg" role="navigation">
+    <div class="navbar-header1">
+        <a class="navbar-brand1" href="#">Simulation</a>
+    </div>
+</nav>
+
+<nav class="navbar navbar-default visible-lg" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Metacentric Height of a floating object</a>
+    </div>
+</nav>
+<hr/>
+
+<div class="container">
+    <div class="split left">
+        <div class="FirstInputBlock">
+            <div class="theoryStatementDivisionTitle"><div id="instruction">
+                <button class="button instructionButton" id="inst" >Instructions</button>
+            </div>
+            </div>
+        </div>
+        <div class="inputDivision">
+            <div class="executionDivision">
+                <div class="executionDivisionTitle"><div class="executionText">Step Execution</div></div>
+                <div class="stepExecutionDisplay">
+                    <div class="programCode" id="NumApproCode">
+                        <div id="NumApproCodeContent1">1. Take an empty tank and fill it with water up, the height of the water level is Z1.</div>
+                        <div id="NumApproCodeContent2">2. Now place the floating body having weight W in the tank,the water level rises upto Z2. </div>
+                        <div id="NumApproCodeContent3">3. Adjust the floating ship.</div>
+                        <div id="NumApproCodeContent4">4. After adjusting, add load of weight (w) to the horizontal beam of the floating body at centre of the beam.</div>
+                        <div id="NumApproCodeContent5">5. Now displaced the load at a known distance Y from the centre of the beam. </div>
+                        <div id="NumApproCodeContent6">6. Now the floating body will tilt at some angle on one side and observe the tilt angle.</div>
+                        <div id="NumApproCodeContent7">7. Finally, calculate the metacentric height using the given formula.</div>
+                        <div id="NumApproCodeContent8">Metacentric Height(GM) = (w*Y)/((W+w)*tan(θ) </div>
+                        <div id="NumApproCodeContent9">where,<br/>
+                            Weight of floating body = W <br/>
+                            Additional weight added on the horizontal beam of the floating body = w <br/>
+                            The distance of w from the center = Y<br/>
+                            Tilt angle = θ
+                            <br/>
+                        </div>
+                        <div id="NumApproCodeContent10">Now you are able to answer the following Question  :
+                        </div>
+                    </div><!-- end of programCode -->
+                </div><!-- end of stepExecutionDisplay -->
+            </div><!-- end of executionDivision -->
+
+        </div>
+    </div>
+
+    <div class="split right">
+
+    </div>
+</div>
+
 </body>
 </html>

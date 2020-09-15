@@ -3,27 +3,21 @@ window.model = {
     inputValueB: '', // user input w.
     inputValueC: '', // user input tan(angle).
     inputValueD:'', // user input displacement
-    metacentricHeight: 0, // metacentricHeight that compute by computeSum method.
-    width: 1, //width of executing one step.
-    //  computeSum: compute metacentricHeight of floating object
-    // compute: function () {
-    //     this.metacentricHeight = this.metacentricHeight + ((this.inputValueB*this.inputValueD)/((this.inputValueA+this.inputValueB)*(this.inputValueC))) * this.width;
-    // }
+    metacentricHeight: 0 //metacentric Height
 }
 
 
 window.view ={
-    metacentricHeight: 0, //  round up the metacentricHeight(model.metacentricHeight) value to 2 decimal points.
-    canvasContext: '', // canvasContext have many properties and methods for drawing paths, boxes, circles, text, images, and more.
-    canvas: new Object(), // Object value of canvas.
     currentSiblingElement: new Object(), //  Object value of current sibling.
     nextSiblingElement: new Object(), //  Object value of next sibling.
-    // addClickEvent: add EventListener to other methods.
 
+
+    // addClickEvent: add EventListener to other methods.
     addClickEvent: function (id, method) {
         var element = document.getElementById(id);
         element.addEventListener('click', method, false);
     },
+
     // activateEvents: calls addClickEvent method to add EventListener to other methods.
     activateEvents: function () {
     this.addClickEvent('okBtnId', function() { view.validationInput() });
@@ -36,34 +30,41 @@ window.view ={
         var value = document.getElementById(id).value;
         return value;
     },
-    // setValue: set given value to a element. //todo use if required
+
+    // setValue: set given value to a element.
     setValue: function (id, valueToSet) {
         document.getElementById(id).value = valueToSet;
     },
+
     // getElementByClass: return element by given class name.
     getElementByClass: function (className) {
         var element = document.getElementsByClassName(className);
         return element[0];
     },
+
     // getNextSiblingElement: return next sibling element.
     getNextSiblingElement: function (element) {
         var nextSiblingElement = element.nextSibling;
         nextSiblingElement = nextSiblingElement.nextSibling;
         return nextSiblingElement;
     },
+
     // disableElement: makes element disable.
     disableElement: function(Id) {
         document.getElementById(Id).disabled = true;
     },
+
     // enableElement: makes element enable.
     enableElement: function(Id) {
         document.getElementById(Id).disabled = false;
     },
+
     // replaceElement: replace one element by another element.
     replaceElement: function (id1, id2) {
         document.getElementById(id1).style.display = 'none';
         document.getElementById(id2).style.display = 'block';
     },
+
     // changeClass: changes class name of a element.
     changeClass: function(id, className) {
         document.getElementById(id).className = className
@@ -73,45 +74,40 @@ window.view ={
     applyColorClass: function (id, colorClass) {
         document.getElementById(id).classList.add(colorClass);
     },
+
     // removeColorClass: removes color class from element.
     removeColorClass: function (id, colorClass) {
         document.getElementById(id).classList.remove(colorClass);
     },
+
     // executionWithColour: shows execution of code by changing color in code Content.
     executionWithColour: function () {
         this.removeColorClass(this.currentSiblingElement.id, 'redClass');
         this.applyColorClass(this.nextSiblingElement.id, 'redClass');
     },
+
     // changePropertyOfElements: changes property of elemants with enableElement, disableElement and changeClass.
     changePropertyOfElements: function () {
         this.enableElement('startBtnId');
         this.disableElement('okBtnId');
         this.disableElement('valueA');
         this.disableElement('valueB');
-        // this.disableElement('myRange');
         this.changeClass('okBtnId', 'buttonDisable startButton');
         this.changeClass('startBtnId', 'button myStartButton');
     },
-    // setInnerHtml: set innerText to a element. // todo call if required
-    setInnerHtml: function (id, innerHTML) {
-        document.getElementById(id).innerHTML = innerHTML;
-    },
+
     // resetVariables: reset all variables to it's initial state.
     resetVariables: function () {
         model.inputValueA = '';
         model.inputValueB = '';
         model.inputValueC = '';
         model.inputValueD = '';
-        // this.xCoordinatesValue = 0;
-        // this.yCoordinatesValue = 0;
         model.metacentricHeight = 0;
-        this.metacentricHeight = 0;
     },
     // resetTextFieldValue: reset text field to their initial state.
     resetTextFieldValue: function () {
         this.setValue('valueA', '');
         this.setValue('valueB', '');
-        // this.setValue('valueC', '');
         this.setValue('myRange', '');
     },
     // resetButtonAndTextField: reset button it's initial state and do text field enable.
@@ -129,34 +125,29 @@ window.view ={
     },
     // endOfExecution: work at end of code execution and with stop button to reset whole experiment at it's initial state.
     endOfExecution: function () {
-        // this.clearOutputValues();
         this.resetVariables();
         this.resetTextFieldValue();
         this.resetButtonAndTextField();
         var idOfRedText = this.getElementByClass('redClass').id;
         this.removeColorClass(idOfRedText, 'redClass');
     },
-    //todo clean
-    // clearOutputValues: clear all output values that displayed during the execution.
-    /*clearOutputValues: function () {
-        this.setInnerHtml('vari', '');
-    },*/
+
     /* validationInput: check validation of input that is given by user and if input value is valid
     then make text field and ok button disable and make start button enable. */
     validationInput: function () {
         var slider = this.getValue("myRange");
         var inputValueD;
+        var metacentricHeight;
         inputValueD = slider;
         if(inputValueD==="0"){
-            // metacentricHeight = 0;
-            alert("There is no displacement in load,it is at the centre of the load" +
+             metacentricHeight = 0;
+            alert("There is no displacement in load,it is at the centre of the load " + " " +
                 " Metacentric Height in mm = 0mm ");
         }
         model.inputValueA=1.5;
         model.inputValueB=0.3056;
+        model.metacentricHeight= metacentricHeight;
         this.changePropertyOfElements();
-
-        // this.clearOutputValues(); //todo if required
     },
 
     // startExperiment: work to start code execution.
@@ -166,11 +157,13 @@ window.view ={
         this.enableElement('nextBtnId');
         this.disableElement('startBtnId');
         this.applyColorClass('NumApproCodeContent1', 'redClass');
+        clearCanvas();
         getwater();
         this.changeClass('startBtnId', 'myStartButton button');
         this.changeClass('stopBtnId', 'myStartButton button');
         this.changeClass('nextBtnId', 'nextButton button');
     },
+
     // stopExperiment: stop code execution at any point.
     stopExperiment: function () {
         restoreCanvas();
@@ -195,7 +188,9 @@ window.view ={
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent4') {
             this.executionWithColour();
+            printValue();
             getbodyandmass();
+            getmarkingandarr();
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent5') {
             this.executionWithColour();
@@ -206,12 +201,9 @@ window.view ={
         else if (this.nextSiblingElement.id === 'NumApproCodeContent6') {
             this.executionWithColour();
             getmarkingandarr();
-
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent7') {
             this.executionWithColour();
-
-
         }
         else if (this.nextSiblingElement.id === 'NumApproCodeContent8') {
             this.executionWithColour();

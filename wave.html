@@ -2,9 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+        }
+        section
+        {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /*background: #ffffffff;*/
+            overflow: hidden;
+        }
+        /*section .wave*/
+        /*{*/
+        /*    position: absolute;*/
+        /*    bottom: 0;*/
+        /*    left: 100%;*/
+        /*    height: 100px;*/
+        /*    !*background-image: url("");*!*/
+        /*    background-size: 1000px 100px;*/
+        /*}*/
+        section .wave
+        {
+            animation: animate 30s linear infinite;
+        }
+        @keyframes animate
+        {
+            0%
+            {
+                background-position-x: 0;
+            }
+            100%
+            {
+                background-position-x: 0 ;
+            }
+
+
+        }
+    </style>
 </head>
 <body>
-$END$
+<section>
+<!--&lt;!&ndash;    -->
+    <div class="wave"><img src="wave.jpeg"/></div>
+    <div class="wave wave1"><img src="wave.jpeg"/></div>
+    <div class="wave wave2"><img src="wave.jpeg"/></div>
+    <div class="wave wave3"><img src="wave.jpeg"/></div>
+    <div class="wave wave4"><img src="wave.jpeg"/></div>
+</section>
 </body>
 </html>
