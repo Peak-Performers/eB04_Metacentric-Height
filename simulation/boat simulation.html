@@ -20,13 +20,13 @@
 .warning {background-color: #ff9800;} /* Orange */
 .warning:hover {background: #e68a00;}
 
-.danger {background-color: #f44336;} /* Red */
+.danger {background-color: #f44336;} /* Red */ 
 .danger:hover {background: #da190b;}
 
-.default {background-color: #e7e7e7; color: black;} /* Gray */
+.default {background-color: #e7e7e7; color: black;} /* Gray */ 
 .default:hover {background: #ddd;}
 
-.ship {
+#ship {
   animation: shake 3s;
   animation-iteration-count: infinite;
 }
@@ -54,8 +54,8 @@
         {
             position: relative;
             width: 100%;
-            height: 100vh;
-            background: #ffffffff;
+            height: 60vh;
+            background: #ffffff;
             overflow: hidden;
         }
         section .wave
@@ -63,25 +63,65 @@
             position: absolute;
            bottom: 0;
            left: 0;
-           width: 70%;
+           width: 45%;
            height: 100px;
            background-image: url("wave.png");
-          background-size: 1000px 100px;
+          background-size: 600px 100px;
 
         }
-        section .wave
+        section .wave.wave1
         {
             animation: animate 30s linear infinite;
+            z-index:1000;
+            opacity: 1;
+            animation-delay: 0s;
+            bottom: 0;
         }
-        @keyframes animate {
-			0% {
-				background-position-x: 0;
-			}
-			100% {
-				background-position-x: 0;
-			}
+       
+       section .wave.wave2
+{
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+section .wave.wave3
+{
+    animation: animate1 15s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+section .wave.wave4
+{
+    animation: animate2 5s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -2s;
+    bottom: 20px;
+}
+@keyframes animate1 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2
+{
+    0%
+    {
+        background-position-x: 0;
+    }
+    100%
+    {
+        background-position-x: -1000px ;
+    }
+}
 
-		}
 
 
 
@@ -100,37 +140,36 @@
 <button class="btn default">Pressed Btn</button>
 </div>
 
-<img id="wave" width="600" height="277" src="wave.png" alt="The Wave">
-
-<img class="ship" src="ship.png" alt="Ship" width="300" height="300">
-<img class="korean" src="korean.png" alt="korean" width="50" height="80">
 
 
-<div class="canvas">
+<section style="position: relative; left: 0; top: 0;">
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+</section>
+
+<img id="ship" src="ship.png" alt="Ship" width="300" height="300" style="position: relative; left: 10; top: 20; ">
+<img id="korean" src="korean.png" alt="korean" width="50" height="80" style="position: relative; ">
 
 
-<p>Canvas:</p>
 
-<canvas id="myCanvas" width="600" height="900" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
 </div>
 </div>
 <script>
-ship = function() {
+/* ship = function() { */
     var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var img = document.getElementById("ship");
-   ctx.drawImage(img, 10, 10);
-};
+    var ctx1 = canvas.getContext("2d");
+    var img1 = document.getElementById("wave");
+   ctx1.drawImage(img1, 2, 7);
+/*};*/
 
-korean = function() {
+/*korean = function() { */
   var canvas = document.getElementById("myCanvas");
-  var ctx = canvas.getContext("2d");
-  var img = document.getElementById("korean");
-  ctx.drawImage(img, 10, 10);
-};
-
+  var ctx2 = canvas.getContext("2d");
+  var img2 = document.getElementById("korean");
+  ctx2.drawImage(img2, 1, 4);
+/*};*/
 
 
 
