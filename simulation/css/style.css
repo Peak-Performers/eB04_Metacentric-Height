@@ -2,10 +2,8 @@
 .container .split {
     height: 100%;
     width: 50%;
-    left: 0.5%;
     position: fixed;
     z-index: 1;
-    top: 28%;
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -13,7 +11,6 @@
 .left {
     left: 0;
     overflow-y: scroll;
-    overflow-scrolling: auto;
     background-image: -webkit-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);
     background-image:    -moz-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);
     background-image:     -ms-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);

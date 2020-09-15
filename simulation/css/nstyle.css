@@ -1,9 +1,9 @@
 .navbar-default {
-    height: 80px;
+    height: 60px;
     padding-top: 15px;
     padding-left: 45px;
     font-size: 1.7em;
-    font-family: 'Actor', sans-serif;
+    font-family:  sans-serif;
     background: #a4214b;
     border-color: #e7dcdd;
 }
@@ -27,11 +27,11 @@
 }
 
 .navbar-default1 {
-    height: 120px;
+    height: 60px;
     padding-top: 5px;
     padding-left: 40px;
     padding-right: 50px;
-    font-size: 5.0em;
+    font-size: 2em;
     text-align: center;
     font-family: 'Actor', sans-serif;
     background: #100607;
@@ -41,7 +41,7 @@
 
 
 .navbar-default .navbar-brand {
-    font-size: 1.4em;
+    font-size: 1em;
     font-family: 'Actor', sans-serif;
     color: #fff;
     font-weight: bold;
