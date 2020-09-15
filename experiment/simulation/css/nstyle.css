@@ -1,6 +1,8 @@
 .navbar-default {
+    margin-top: 0;
     height: 60px;
-    padding-top:0;
+    padding-top:30px;
+    text-align: center;
     padding-left: 45px;
     font-size: 1.7em;
     font-family:  sans-serif;
@@ -31,7 +33,6 @@
     padding-top: 5px;
     padding-left: 40px;
     padding-right: 50px;
-    font-size: 2em;
     text-align: center;
     font-family: 'Actor', sans-serif;
     background: #100607;

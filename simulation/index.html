@@ -9,7 +9,8 @@
     <script src="js/metacentric-height.js"></script>
     <style>
         #ship {
-            top:50%;
+            top:90%;
+            bottom:0;
             animation: shake 3s;
             animation-iteration-count: infinite;
         }
@@ -37,17 +38,16 @@
         {
             position: relative;
             width: 100%;
-            height: 10vh;
-            background: #ffffff;
+            height: 60vh;
             overflow: hidden;
         }
         section .wave
         {
             position: absolute;
-            top:10%;
+            bottom: 0;
             right: 0;
-            width: 95%;
-            height: 200px;
+            width: 97%;
+            height: 100px;
             background-image: url("wave.png");
             background-size: 600px 100px;
 
@@ -173,10 +173,10 @@
             <button class="btn default">Pressed Btn</button>
         </div>
         <div class="image">
-            <img id="ship" src="ship.png" alt="Ship" width="300" height="300" >
+            <img id="ship" src="ship.png" alt="Ship" width="500" height="500" >
             <img id="korean" src="korean.png" alt="korean" width="50" height="80" >
         </div>
-            <section style="position: relative; left: 0; top: 0;">
+            <section>
             <div class="wave wave1"></div>
             <div class="wave wave2"></div>
             <div class="wave wave3"></div>
