@@ -132,10 +132,14 @@ section .wave.wave4
 	<div class="pooribody">
 <div class="buttons">
 <h2>Add Elements From Given Buttons</h2>
+<audio id="sound1" src="audio/water.mpeg" preload="auto"></audio>
+<audio id="sound2" src="audio/chappak.mpeg" preload="auto"></audio>
+<audio id="sound3" src="audio/chappak.mpeg" preload="auto"></audio>
 
-<button class="btn info">Water</button>
-<button class="btn danger">Ship</button>
-<button class="btn warning">Load</button>
+
+<button class="btn info" onclick="document.getElementById('sound1').play();">Water</button>
+<button class="btn danger" onclick="document.getElementById('sound2').play();">Ship</button>
+<button class="btn warning" onclick="document.getElementById('sound3').play();">Load</button>
 <button class="btn success">Reset</button>
 <button class="btn default">Pressed Btn</button>
 </div>
