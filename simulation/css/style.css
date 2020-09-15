@@ -12,6 +12,8 @@
 
 .left {
     left: 0;
+    overflow-y: scroll;
+    overflow-scrolling: auto;
     background-image: -webkit-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);
     background-image:    -moz-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);
     background-image:     -ms-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);
