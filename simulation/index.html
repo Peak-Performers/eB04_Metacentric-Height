@@ -7,7 +7,105 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link href="css/metacentric-height.css" rel="stylesheet" type="text/css"/>
     <script src="js/metacentric-height.js"></script>
+    <style>
+        #ship {
+            top:50%;
+            animation: shake 3s;
+            animation-iteration-count: infinite;
+        }
 
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }/* shake */
+
+        /* wave */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        section
+        {
+            position: relative;
+            width: 100%;
+            height: 10vh;
+            background: #ffffff;
+            overflow: hidden;
+        }
+        section .wave
+        {
+            position: absolute;
+            top:10%;
+            right: 0;
+            width: 95%;
+            height: 200px;
+            background-image: url("wave.png");
+            background-size: 600px 100px;
+
+        }
+        section .wave.wave1
+        {
+            animation: animate 30s linear infinite;
+            z-index:1000;
+            opacity: 1;
+            animation-delay: 0s;
+            bottom: 0;
+        }
+
+        section .wave.wave2
+        {
+            animation: animate2 15s linear infinite;
+            z-index: 999;
+            opacity: 0.5;
+            animation-delay: -5s;
+            bottom: 10px;
+        }
+        section .wave.wave3
+        {
+            animation: animate1 15s linear infinite;
+            z-index: 998;
+            opacity: 0.2;
+            animation-delay: -2s;
+            bottom: 15px;
+        }
+        section .wave.wave4
+        {
+            animation: animate2 5s linear infinite;
+            z-index: 997;
+            opacity: 0.7;
+            animation-delay: -2s;
+            bottom: 20px;
+        }
+        @keyframes animate1 {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 1000px;
+            }
+        }
+        @keyframes animate2
+        {
+            0%
+            {
+                background-position-x: 0;
+            }
+            100%
+            {
+                background-position-x: -1000px ;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
@@ -33,23 +131,60 @@
             <button class="buttonDisable myStartButton" disabled="" id="startBtnId">Start</button><button class="buttonDisable myStartButton hide" disabled="" id="stopBtnId">Stop</button>
             <button class="buttonDisable nextButton" disabled="" id="nextBtnId">Next</button>
         </div>
+        <div class="executionDivision">
+            <div class="executionDivisionTitle"><div class="executionPic"></div><div class="executionText">Step Execution</div></div>
+            <div class="stepExecutionDisplay">
+                <div class="programCode" id="NumApproCode">
+                    <div id="NumApproCodeContent1">1. Take an empty tank and fill it with water up, the height of the water level is Z1.</div>
+                    <div id="NumApproCodeContent2">2. Now place the floating body having weight W in the tank,the water level rises upto Z2. </div>
+                    <div id="NumApproCodeContent3">3. Adjust the floating ship.</div>
+                    <div id="NumApproCodeContent4">4. After adjusting, add load of weight (w) to the horizontal beam of the floating body at centre of the beam.</div>
+                    <div id="NumApproCodeContent5">5. Now displaced the load at a known distance Y from the centre of the beam. </div>
+                    <div id="NumApproCodeContent6">6. Now the floating body will tilt at some angle on one side and observe the tilt angle.</div>
+                    <div id="NumApproCodeContent7">7. Finally, calculate the metacentric height using the given formula.</div>
+                    <div id="NumApproCodeContent8">Metacentric Height(GM) = (w*Y)/((W+w)*tan(θ) </div>
+                    <div id="NumApproCodeContent9">where,<br/>
+                        Weight of floating body = W <br/>
+                        Additional weight added on the horizontal beam of the floating body = w <br/>
+                        The distance of w from the center = Y<br/>
+                        Tilt angle = θ
+                        <br/>
+                    </div>
+                    <div id="NumApproCodeContent10">Now you are able to answer the following Question  :
+                    </div>
+                </div><!-- end of programCode -->
+            </div><!-- end of stepExecutionDisplay -->
+        </div><!-- end of executionDivision -->
 
     </div>
-
 
 
     <div class="split right">
         <div class="buttons">
-            <button class="btn success" disabled="" id="Reset">Reset</button>
-            <button class="btnDisable warning" disabled="" id="Load">Load</button>
-            <button class="btnDisable danger" disabled="" id="Ship">Ship</button>
-            <button class="btnDisable info" disabled="" id="Water">Water</button>
+            <audio id="sound1" src="audio/water.mpeg" preload="auto"></audio>
+            <audio id="sound2" src="audio/chappak.mpeg" preload="auto"></audio>
+            <audio id="sound3" src="audio/chappak.mpeg" preload="auto"></audio>
 
 
-
-    <!--        <button class="btn default">Pressed Btn</button>-->
+            <button class="btn info" onclick="document.getElementById('sound1').play();">Water</button>
+            <button class="btn danger" onclick="document.getElementById('sound2').play();">Ship</button>
+            <button class="btn warning" onclick="document.getElementById('sound3').play();">Load</button>
+            <button class="btn success">Reset</button>
+            <button class="btn default">Pressed Btn</button>
         </div>
-    </div>
+        <div class="image">
+            <img id="ship" src="ship.png" alt="Ship" width="300" height="300" >
+            <img id="korean" src="korean.png" alt="korean" width="50" height="80" >
+        </div>
+            <section style="position: relative; left: 0; top: 0;">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </section>
+
+
+</div>
 </div>
 
 </body>
