@@ -25,6 +25,7 @@ window.view ={
         this.addClickEvent('nextBtnId', function() { view.plotCanvas() });
         this.addClickEvent('stopBtnId', function() { view.stopExperiment() });
     },
+
     // getValue: return value from element.
     getValue: function (id) {
         var value = document.getElementById(id).value;
@@ -134,7 +135,7 @@ window.view ={
 
     /* validationInput: check validation of input that is given by user and if input value is valid
     then make text field and ok button disable and make start button enable. */
-    validationInput: function () {
+    validationInput1:function() {
         var slider = this.getValue("myRange");
         var inputValueD;
         var metacentricHeight;
@@ -147,6 +148,14 @@ window.view ={
         model.inputValueA=1.5;
         model.inputValueB=0.3056;
         model.metacentricHeight= metacentricHeight;
+        this.changePropertyOfElements();
+
+    },
+
+    /* validationInput: check validation of input that is given by user and if input value is valid
+    then make text field and ok button disable and make start button enable. */
+    validationInput: function () {
+        alert("Read the instructions carefully before start the simulator");
         this.changePropertyOfElements();
     },
 

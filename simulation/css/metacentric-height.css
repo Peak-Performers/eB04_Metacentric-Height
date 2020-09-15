@@ -103,6 +103,22 @@
     cursor: pointer;
 }
 
+.btnDisable {
+    float:right;
+    text-shadow: 1px 1px 0 #fff;
+    color: #999999;
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -ms-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .success {background-color: #4CAF50;} /* Green */
 .success:hover {background-color: #46a049;}
 
