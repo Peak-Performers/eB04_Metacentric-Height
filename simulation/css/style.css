@@ -1,5 +1,6 @@
 /* Split the screen in half */
 .container .split {
+    overflow: scroll;
     height: 100%;
     width: 50%;
     position: fixed;
@@ -8,7 +9,13 @@
     padding-top: 20px;
 }
 
+.right{
+    right:0;
+    left: 49%;
+}
+
 .left {
+    overflow: scroll;
     left: 0;
     overflow-y: scroll;
     background-image: -webkit-linear-gradient(left, #8aa49d, #04a49f, #8aa49d);
