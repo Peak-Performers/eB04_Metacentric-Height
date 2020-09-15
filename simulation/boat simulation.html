@@ -11,8 +11,6 @@
   cursor: pointer;
 }
 
-.
-
 .success {background-color: #4CAF50;} /* Green */
 .success:hover {background-color: #46a049;}
 
@@ -22,10 +20,10 @@
 .warning {background-color: #ff9800;} /* Orange */
 .warning:hover {background: #e68a00;}
 
-.danger {background-color: #f44336;} /* Red */
+.danger {background-color: #f44336;} /* Red */ 
 .danger:hover {background: #da190b;}
 
-.default {background-color: #e7e7e7; color: black;} /* Gray */
+.default {background-color: #e7e7e7; color: black;} /* Gray */ 
 .default:hover {background: #ddd;}
 
 #ship {
@@ -53,19 +51,19 @@
       padding: 0;
         }
         section
-        {
+        { /*
             position: relative;
             width: 100%;
             height: 60vh;
-            background: #ffffff;
-            overflow: hidden;
+            background: #ffffff; 
+            overflow: hidden;   */
         }
         section .wave
         {
             position: absolute;
            bottom: 0;
            left: 0;
-           width: 45%;
+           width: 35%;
            height: 100px;
            background-image: url("wave.png");
           background-size: 600px 100px;
@@ -79,7 +77,7 @@
             animation-delay: 0s;
             bottom: 0;
         }
-
+       
        section .wave.wave2
 {
     animation: animate2 15s linear infinite;
@@ -139,7 +137,7 @@ section .wave.wave4
 <audio id="sound3" src="audio/chappak.mpeg" preload="auto"></audio>
 
 
-<button class="btn info" onclick="document.getElementById('sound1').play();">Water</button>
+<button class="btn info" onclick="mywave() document.getElementById('sound1').play(); ">Water</button>
 <button class="btn danger" onclick="document.getElementById('sound2').play();">Ship</button>
 <button class="btn warning" onclick="document.getElementById('sound3').play();">Load</button>
 <button class="btn success">Reset</button>
@@ -147,35 +145,37 @@ section .wave.wave4
 </div>
 
 
+<img id="ship" src="ship.png" alt="Ship" width="300" height="300" style="position: relative; z-index: 2; ">
+<img id="korean" src="korean.png" alt="korean" width="70" height="100" style="position: relative; z-index: 3; ">
 
-<section style="position: relative; left: 0; top: 0;">
+
+<section class="wave11" style="position: relative; left: 0; top: 0; z-index: 1;">
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
     <div class="wave wave3"></div>
     <div class="wave wave4"></div>
 </section>
 
-
-
-
+<p> Result </p>
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
 
 </div>
-</div>
+
 <script>
-/* ship = function() { */
+/* ship = function() { x
     var canvas = document.getElementById("myCanvas");
     var ctx1 = canvas.getContext("2d");
     var img1 = document.getElementById("wave");
    ctx1.drawImage(img1, 2, 7);
 /*};*/
 
-/*korean = function() { */
-  var canvas = document.getElementById("myCanvas");
-  var ctx2 = canvas.getContext("2d");
-  var img2 = document.getElementById("korean");
-  ctx2.drawImage(img2, 1, 4);
-/*};*/
 
+function mywave() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("wave11");
+  ctx.drawImage(img,10,10);
 
 
 </script>
