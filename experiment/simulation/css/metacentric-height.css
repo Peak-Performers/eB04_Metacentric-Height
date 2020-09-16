@@ -31,18 +31,17 @@ body{
     cursor: pointer;
 }
 
-.button {
+.button, .button:hover {
     text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
-    border-color: #a4214b;
-    border-bottom-color: #a40f30;
+    border-color: #dc291c;
+    border-bottom-color: #a4182d;
     color: #fff;
-    background-color: #3c8dde;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#a4214b));
-    background-image: -moz-linear-gradient(#599bdc, #a4214b);
-    background-image: -o-linear-gradient(#599bdc, #a4214b);
-    background-image: linear-gradient(#599bdc, #a4214b);
+    background-color: #a4182d;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dc291c), to(#a4182d));
+    background-image: -moz-linear-gradient(#dc291c, #a4182d);
+    background-image: -o-linear-gradient(#dc291c, #a4182d);
+    background-image: linear-gradient(#dc291c, #a4182d);
 }
-
 .buttonDisable {
     text-shadow: 1px 1px 0 #fff;
     color: #999999;
@@ -284,7 +283,6 @@ body{
     width:100%;
     height:90%;
     text-align: center;
-    font-size: 1em;
     font-size: 3vmin;
     border-top:1px solid #CCC;
 }
